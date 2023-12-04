@@ -1,19 +1,14 @@
 package lotto.domain.entity.numbers;
 
 import java.util.List;
+import lotto.utility.NumberValidator;
 
-public class Lotto implements Numbers {
+public class Lotto implements Number {
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
-        validate(numbers);
+        NumberValidator.isValid(numbers);
         this.numbers = numbers;
-    }
-
-    private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
-            throw new IllegalArgumentException();
-        }
     }
 
     // TODO: 추가 기능 구현

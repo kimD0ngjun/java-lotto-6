@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import lotto.domain.entity.numbers.Lotto;
-import lotto.domain.entity.numbers.Numbers;
+import lotto.domain.entity.numbers.Number;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ public class LottoTest {
     @Test
     void testSameNumbers() {
         List<Integer> testNumbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 7));
-        Numbers lotto = new Lotto(testNumbers);
+        Number lotto = new Lotto(testNumbers);
 
         assertEquals(5, lotto.compareNumbers(numbers));
     }
