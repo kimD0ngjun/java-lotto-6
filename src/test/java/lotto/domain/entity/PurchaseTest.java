@@ -73,11 +73,24 @@ class PurchaseTest {
 //            new SimplePurchase("삼천원", generator);
 //        });
 //    }
+    @DisplayName("범위 외의 값을 입력하면 예외 처리된다")
+    @Test
+    void testPurchaseRange() {
+        Generator generator = new PurchaseNumbersGenerator();
+
+        int[] testCases = {900, -1_000, 2_147_483_001};
+
+        for(int testCase: testCases) {
+            assertThrows(IllegalArgumentException.class, () -> {
+                new SimplePurchase(testCase, generator);
+            });
+        }
+    }
 
     @DisplayName("1,000원 단위가 아닌 값을 입력하면 예외 처리된다")
     @Test
     void testThousandsUnitException() {
-        Generator generator = new MockPurchaseNumbersGenerator();
+        Generator generator = new PurchaseNumbersGenerator();
 
         assertThrows(IllegalArgumentException.class, () -> {
             new SimplePurchase(3200, generator);
