@@ -11,9 +11,9 @@ public class SimplePurchase implements Purchase {
     private int amount;
     private final Generator lottoGenerator;
 
-    public SimplePurchase(String amount, Generator lottoGenerator) {
+    public SimplePurchase(int amount, Generator lottoGenerator) {
         isValidPurchase(amount);
-        this.amount = Integer.parseInt(amount) / 1000;
+        this.amount = amount / 1000;
         this.lottoGenerator = lottoGenerator;
     }
 

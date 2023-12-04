@@ -28,7 +28,7 @@ class PurchaseTest {
     @BeforeAll
     static void setUp() {
         Generator mockGenerator = new MockPurchaseNumbersGenerator(); // 자동 타입 변환
-        Purchase purchase = new SimplePurchase("10000", mockGenerator); // 자동 타입 변환
+        Purchase purchase = new SimplePurchase(10000, mockGenerator); // 자동 타입 변환
 
         generatedNumbers = purchase.repeatGenerator();
     }
@@ -64,15 +64,15 @@ class PurchaseTest {
         }
     }
 
-    @DisplayName("숫자 이외의 값을 입력하면 예외 처리된다")
-    @Test
-    void testNumberFormatException() {
-        Generator generator = new MockPurchaseNumbersGenerator();
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            new SimplePurchase("삼천원", generator);
-        });
-    }
+//    @DisplayName("숫자 이외의 값을 입력하면 예외 처리된다")
+//    @Test
+//    void testNumberFormatException() {
+//        Generator generator = new MockPurchaseNumbersGenerator();
+//
+//        assertThrows(IllegalArgumentException.class, () -> {
+//            new SimplePurchase("삼천원", generator);
+//        });
+//    }
 
     @DisplayName("1,000원 단위가 아닌 값을 입력하면 예외 처리된다")
     @Test
@@ -80,7 +80,7 @@ class PurchaseTest {
         Generator generator = new MockPurchaseNumbersGenerator();
 
         assertThrows(IllegalArgumentException.class, () -> {
-            new SimplePurchase("3200", generator);
+            new SimplePurchase(3200, generator);
         });
     }
 }

@@ -5,7 +5,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lotto.view.message.ErrorMessage;
 
-public class TypeChanger {
+public class TypeValidator {
+    // String 숫자를 parseInt하는 메소드
+    public static void isNumberType(String input) {
+        try {
+            Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.ONLY_NUMBER.getMessage());
+        }
+    }
 
     // 쉼표를 구분자로 List 반환하는 메소드
     public static List<Integer> splitAndParseInt(String input) {
