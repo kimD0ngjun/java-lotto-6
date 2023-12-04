@@ -14,11 +14,14 @@ public class Purchase {
         this.amount = amount / 1000;
     }
 
-    public void repeatGenerator() {
+    // 구입 금액만큼 생성 반복하기
+    public List<List<Integer>> repeatGenerator() {
+        List<List<Integer>> generatedNumbers = new ArrayList<>();
         while (amount > 0) {
-            generateNumbers();
+            generatedNumbers.add(generateNumbers());
             amount--;
         }
+        return generatedNumbers;
     }
 
     // 로또 번호 생성기
