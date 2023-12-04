@@ -24,7 +24,7 @@ public class PurchaseTest {
     @BeforeAll
     static void setUp() {
         PurchaseNumbersGenerator mockGenerator = new MockPurchaseNumbersGenerator(); // 자동 타입 변환
-        Purchase purchase = new SimplePurchase(10000, mockGenerator); // 자동 타입 변환
+        Purchase purchase = new SimplePurchase("10000", mockGenerator); // 자동 타입 변환
 
         generatedNumbers = purchase.repeatGenerator();
     }
