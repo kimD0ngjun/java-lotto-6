@@ -12,7 +12,9 @@ public class Bonus implements Number {
 
     @Override
     public int compareNumbers(List<Integer> purchaseUnit) {
-
-        return RANK_INCREASE;
+        if (purchaseUnit.contains(bonus)) {
+            return RANK_INCREASE;
+        }
+        return 0;
     }
 }
