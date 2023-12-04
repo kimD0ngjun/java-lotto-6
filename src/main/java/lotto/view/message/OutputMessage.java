@@ -1,10 +1,15 @@
 package lotto.view.message;
 
 public enum OutputMessage {
-    OUTPUT_MESSAGE("메시지를 작성하세요."),
-    FORMAT_MESSAGE_STRING("이름 : %d"),
-    FORMAT_MESSAGE_NUMBER("개수 : %s개"),
-    FORMAT_MESSAGE_STRING_NUMBER("이름 : %d\n개수 : %s개");
+    PURCHASEE("%s개를 구매했습니다."),
+    WINNING("당첨 통계\n"
+            + "---\n"
+            + "3개 일치 (5,000원) - %d개\n"
+            + "4개 일치 (50,000원) - %d개\n"
+            + "5개 일치 (1,500,000원) - %d개\n"
+            + "5개 일치, 보너스 볼 일치 (30,000,000원) - %d개\n"
+            + "6개 일치 (2,000,000,000원) - %d개"),
+    RATE("총 수익률은 %s%%입니다.");
 
     private final String message;
 
@@ -17,15 +22,11 @@ public enum OutputMessage {
     }
 
     // 메소드 오버로딩 활용
-    public String getMessage(int number) {
-        return String.format(message, number);
+    public String getMessage(int... args) {
+        return String.format(message, args);
     }
 
     public String getMessage(String string) {
         return String.format(message, string);
-    }
-
-    public String getMessage(String menuName, int menuQuantity) {
-        return String.format(message, menuName, menuQuantity);
     }
 }
