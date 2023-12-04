@@ -19,6 +19,8 @@ public class Lotto implements Numbers {
     // TODO: 추가 기능 구현
     @Override
     public int compareNumbers(List<Integer> purchaseUnit) {
-
+        return (int) numbers.stream()
+                .filter(purchaseUnit::contains)
+                .count(); // long으로 반환되는 걸 강제 타입 변환
     };
 }
