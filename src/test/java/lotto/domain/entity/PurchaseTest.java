@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThatCode;
 
 import java.util.Arrays;
 import java.util.List;
+import lotto.domain.entity.purchase.Purchase;
+import lotto.domain.entity.purchase.SimplePurchase;
 import lotto.service.PurchaseNumbersGenerator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;

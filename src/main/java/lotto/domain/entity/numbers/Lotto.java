@@ -1,8 +1,8 @@
-package lotto.domain.entity;
+package lotto.domain.entity.numbers;
 
 import java.util.List;
 
-public class Lotto {
+public class Lotto implements Numbers {
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
@@ -17,4 +17,8 @@ public class Lotto {
     }
 
     // TODO: 추가 기능 구현
+    @Override
+    public int compareNumbers(List<Integer> purchaseUnit) {
+
+    };
 }
