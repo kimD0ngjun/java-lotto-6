@@ -5,7 +5,7 @@ import lotto.view.message.InputMessage;
 import mvc.view.message.InputMessage;
 
 
-public class Value implements Input {
+public class Purchase implements Input {
     @Override
     public String input () {
         InputMessage.PURCHASE.getMessage();
