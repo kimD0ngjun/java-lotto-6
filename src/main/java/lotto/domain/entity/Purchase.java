@@ -14,7 +14,12 @@ public class Purchase {
         this.amount = amount / 1000;
     }
 
-
+    public void repeatGenerator() {
+        while (amount > 0) {
+            generateNumbers();
+            amount--;
+        }
+    }
 
     // 로또 번호 생성기
     private List<Integer> generateNumbers() {
