@@ -2,7 +2,7 @@ package lotto.domain.entity;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import lotto.domain.entity.numbers.Bonus;
+import lotto.domain.entity.bonus.Bonus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

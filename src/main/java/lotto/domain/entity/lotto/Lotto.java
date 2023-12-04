@@ -1,9 +1,9 @@
-package lotto.domain.entity.numbers;
+package lotto.domain.entity.lotto;
 
 import java.util.List;
 import lotto.utility.NumberValidator;
 
-public class Lotto implements Number {
+public class Lotto implements Numbers {
     private final List<Integer> numbers;
 
     public Lotto(List<Integer> numbers) {
@@ -11,7 +11,6 @@ public class Lotto implements Number {
         this.numbers = numbers;
     }
 
-    // TODO: 추가 기능 구현
     @Override
     public int compareNumbers(List<Integer> purchaseUnit) {
         return (int) numbers.stream()

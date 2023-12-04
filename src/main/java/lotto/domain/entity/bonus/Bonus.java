@@ -1,6 +1,7 @@
-package lotto.domain.entity.numbers;
+package lotto.domain.entity.bonus;
 
 import java.util.List;
+import lotto.domain.entity.lotto.Numbers;
 import lotto.utility.NumberValidator;
 
 public class Bonus implements Number {
@@ -13,7 +14,7 @@ public class Bonus implements Number {
     }
 
     @Override
-    public int compareNumbers(List<Integer> purchaseUnit) {
+    public int compareNumber(List<Integer> purchaseUnit) {
         if (purchaseUnit.contains(bonus)) {
             return RANK_INCREASE;
         }

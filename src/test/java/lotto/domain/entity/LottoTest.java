@@ -2,8 +2,8 @@ package lotto.domain.entity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import lotto.domain.entity.numbers.Lotto;
-import lotto.domain.entity.numbers.Number;
+import lotto.domain.entity.lotto.Lotto;
+import lotto.domain.entity.lotto.Numbers;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,7 +25,7 @@ class LottoTest {
     @Test
     void testSameNumbers() {
         List<Integer> testNumbers = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 7));
-        Number lotto = new Lotto(testNumbers);
+        Numbers lotto = new Lotto(testNumbers);
 
         assertEquals(5, lotto.compareNumbers(numbers));
     }

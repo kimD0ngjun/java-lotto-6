@@ -32,9 +32,16 @@ public class NumberValidator {
         }
     }
 
-    // 중복 여부 판별(보너스 번호에서 오버로딩 안되나)
+    // 중복 여부 판별
     private static void validateDuplicates(List<Integer> numbers) {
         if (numbers.stream().distinct().count() != numbers.size()) {
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATES.getMessage());
+        }
+    }
+
+    // 당첨 입력값과 보너스 입력값 비교
+    public static void validateContain(List<Integer> lotto, int number) {
+        if (lotto.contains(number)) {
             throw new IllegalArgumentException(ErrorMessage.DUPLICATES.getMessage());
         }
     }

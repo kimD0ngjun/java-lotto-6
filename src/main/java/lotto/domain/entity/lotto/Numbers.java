@@ -1,7 +1,7 @@
-package lotto.domain.entity.numbers;
+package lotto.domain.entity.lotto;
 
 import java.util.List;
 
-public interface Number {
+public interface Numbers {
     int compareNumbers(List<Integer> purchaseUnit);
 }

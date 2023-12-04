@@ -7,9 +7,9 @@ import lotto.view.message.ErrorMessage;
 
 public class TypeValidator {
     // String 숫자를 parseInt하는 메소드
-    public static void isNumberType(String input) {
+    public static int isNumberType(String input) {
         try {
-            Integer.parseInt(input);
+            return Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.ONLY_NUMBER.getMessage());
         }
