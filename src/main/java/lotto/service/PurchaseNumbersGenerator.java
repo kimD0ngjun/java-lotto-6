@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class PurchaseNumbersGenerator {
+public class PurchaseNumbersGenerator implements Generator {
     public List<Integer> generateNumbers() {
         List<Integer> numbers;
         do {

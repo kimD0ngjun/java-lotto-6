@@ -4,13 +4,14 @@ import static lotto.utility.PurchaseValidator.isValidPurchase;
 
 import java.util.ArrayList;
 import java.util.List;
+import lotto.service.Generator;
 import lotto.service.PurchaseNumbersGenerator;
 
 public class SimplePurchase implements Purchase {
     private int amount;
-    private final PurchaseNumbersGenerator lottoGenerator;
+    private final Generator lottoGenerator;
 
-    public SimplePurchase(String amount, PurchaseNumbersGenerator lottoGenerator) {
+    public SimplePurchase(String amount, Generator lottoGenerator) {
         isValidPurchase(amount);
         this.amount = Integer.parseInt(amount) / 1000;
         this.lottoGenerator = lottoGenerator;

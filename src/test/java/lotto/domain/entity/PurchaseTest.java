@@ -2,17 +2,19 @@ package lotto.domain.entity;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
 import java.util.List;
 import lotto.domain.entity.purchase.Purchase;
 import lotto.domain.entity.purchase.SimplePurchase;
+import lotto.service.Generator;
 import lotto.service.PurchaseNumbersGenerator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class PurchaseTest {
+class PurchaseTest {
     // 테스트용 Mock PurchaseNumbersGenerator 클래스
     private static class MockPurchaseNumbersGenerator extends PurchaseNumbersGenerator {
         @Override
@@ -25,7 +27,7 @@ public class PurchaseTest {
 
     @BeforeAll
     static void setUp() {
-        PurchaseNumbersGenerator mockGenerator = new MockPurchaseNumbersGenerator(); // 자동 타입 변환
+        Generator mockGenerator = new MockPurchaseNumbersGenerator(); // 자동 타입 변환
         Purchase purchase = new SimplePurchase("10000", mockGenerator); // 자동 타입 변환
 
         generatedNumbers = purchase.repeatGenerator();
@@ -60,5 +62,25 @@ public class PurchaseTest {
         for (List<Integer> numbers : generatedNumbers) {
             assertThat(numbers).isSorted();
         }
+    }
+
+    @DisplayName("숫자 이외의 값을 입력하면 예외 처리된다")
+    @Test
+    void testNumberFormatException() {
+        Generator generator = new MockPurchaseNumbersGenerator();
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new SimplePurchase("삼천원", generator);
+        });
+    }
+
+    @DisplayName("1,000원 단위가 아닌 값을 입력하면 예외 처리된다")
+    @Test
+    void testThousandsUnitException() {
+        Generator generator = new MockPurchaseNumbersGenerator();
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new SimplePurchase("3200", generator);
+        });
     }
 }
