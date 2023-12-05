@@ -1,4 +1,4 @@
-package lotto.domain.entity.numbers;
+package lotto.domain.entity;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
