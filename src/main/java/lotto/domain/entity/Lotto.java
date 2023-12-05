@@ -10,6 +10,7 @@ public class Lotto extends Numbers {
         this.numbers = numbers;
     }
 
+    // 이제 이걸 구입 금액 비례 뺑뺑이 돌리기
     public int countSameNumber(Purchase purchase) {
         return purchase.compareNumbers(numbers);
     }
