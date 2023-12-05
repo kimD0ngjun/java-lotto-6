@@ -3,14 +3,9 @@ package lotto.utility;
 import java.util.List;
 import lotto.view.message.ErrorMessage;
 
-public class NumberValidator {
-    public static void isValidLotto(List<Integer> numbers) {
-        validateLength(numbers);
-        validateUnitRange(numbers);
-        validateDuplicates(numbers);
-    }
+public class NumbersValidator {
 
-    private static void validateLength(List<Integer> numbers) {
+    public static void validateLength(List<Integer> numbers) {
         if (numbers.size() != 6) {
             throw new IllegalArgumentException(ErrorMessage.SIX_TIMES.getMessage());
         }
@@ -19,7 +14,7 @@ public class NumberValidator {
     private static final int MIN_RANGE = 1;
     private static final int MAX_RANGE = 45;
 
-    private static void validateUnitRange(List<Integer> numbers) {
+    public static void validateUnitRange(List<Integer> numbers) {
         for(int number: numbers) {
             validateRange(number);
         }
@@ -33,7 +28,7 @@ public class NumberValidator {
     }
 
     // 중복 여부 판별
-    private static void validateDuplicates(List<Integer> numbers) {
+    public static void validateDuplicates(List<Integer> numbers) {
         if (numbers.stream().distinct().count() != numbers.size()) {
             throw new IllegalArgumentException(ErrorMessage.DUPLICATES.getMessage());
         }
