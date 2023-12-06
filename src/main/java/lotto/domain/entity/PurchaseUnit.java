@@ -6,10 +6,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Purchase extends Numbers {
+public class PurchaseUnit extends Numbers {
     private final List<Integer> numbers;
 
-    public Purchase() {
+    public PurchaseUnit() {
         this.numbers = generatePurchase();
     }
 

@@ -5,7 +5,7 @@ import lotto.view.message.InputMessage;
 
 public class Bonus implements Input {
     @Override
-    public String input () {
+    public String inputValue() {
         InputMessage.BONUS.getMessage();
         return Console.readLine();
     }

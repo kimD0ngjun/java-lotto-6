@@ -11,7 +11,7 @@ public class Lotto extends Numbers {
     }
 
     // 이제 이걸 구입 금액 비례 뺑뺑이 돌리기
-    public int countSameNumber(Purchase purchase) {
-        return purchase.compareNumbers(numbers);
+    public int countSameNumber(PurchaseUnit purchaseUnit) {
+        return purchaseUnit.compareNumbers(numbers);
     }
 }

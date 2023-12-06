@@ -7,9 +7,9 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class PurchaseTest {
+public class PurchaseUnitTest {
     // 테스트용 MockPurchase 클래스
-    private static class MockPurchase extends Purchase {
+    private static class MockPurchaseUnit extends PurchaseUnit {
         @Override
         public List<Integer> generatePurchase() {
             return Arrays.asList(1, 2, 3, 4, 5, 6);
@@ -19,12 +19,12 @@ public class PurchaseTest {
     @DisplayName("List 타입의 일련번호를 받아서 일치 개수를 반환한다.")
     @Test
     void testCounting() {
-        Purchase mockPurchase = new MockPurchase();
+        PurchaseUnit mockPurchaseUnit = new MockPurchaseUnit();
 
         List<Integer> testCase1 = Arrays.asList(1, 2, 6, 4, 2, 3);
         List<Integer> testCase2 = Arrays.asList(1, 2, 7, 8, 10, 41);
 
-        assertEquals(6, mockPurchase.compareNumbers(testCase1));
-        assertEquals(2, mockPurchase.compareNumbers(testCase2));
+        assertEquals(6, mockPurchaseUnit.compareNumbers(testCase1));
+        assertEquals(2, mockPurchaseUnit.compareNumbers(testCase2));
     }
 }

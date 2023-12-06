@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 public class LottoTest {
     // 테스트용 MockPurchase 클래스
-    private static class MockPurchase extends Purchase {
+    private static class MockPurchaseUnit extends PurchaseUnit {
         @Override
         public List<Integer> generatePurchase() {
             return Arrays.asList(7, 8, 9, 10, 11, 12);
@@ -35,7 +35,7 @@ public class LottoTest {
     @DisplayName("Purchase 클래스에서 생성된 구입 번호 단위와 비교해서 일치 개수를 반환한다.")
     @Test
     void testCountingSameNumbers() {
-        Purchase mockPurchase = new MockPurchase();
+        PurchaseUnit mockPurchaseUnit = new MockPurchaseUnit();
 
         Lotto[] testCases = {
                 new Lotto(Arrays.asList(1, 2, 3, 4, 5, 6)),
@@ -50,7 +50,7 @@ public class LottoTest {
         int count = 0;
 
         for (Lotto testCase: testCases) {
-            assertEquals(count, testCase.countSameNumber(mockPurchase));
+            assertEquals(count, testCase.countSameNumber(mockPurchaseUnit));
             count++;
         }
     }
