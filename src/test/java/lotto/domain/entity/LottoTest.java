@@ -50,7 +50,7 @@ public class LottoTest {
         int count = 0;
 
         for (Lotto testCase: testCases) {
-            assertEquals(count, testCase.countSameNumber(mockPurchaseUnit));
+            assertEquals(count, mockPurchaseUnit.compareNumbers(testCase));
             count++;
         }
     }

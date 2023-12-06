@@ -1,6 +1,7 @@
 package lotto.domain.entity;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Lotto extends Numbers {
     private final List<Integer> numbers;
@@ -11,7 +12,9 @@ public class Lotto extends Numbers {
     }
 
     // 이제 이걸 구입 금액 비례 뺑뺑이 돌리기
-    public int countSameNumber(PurchaseUnit purchaseUnit) {
-        return purchaseUnit.compareNumbers(numbers);
+    public int countSameNumber(List<Integer> purchase) {
+        return (int) IntStream.range(0, purchase.size())
+                .filter(i -> numbers.contains(purchase.get(i)))
+                .count();
     }
 }
