@@ -6,12 +6,11 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.IntStream;
 
-public class PurchaseUnit extends Numbers {
+public class Purchase {
     private List<Integer> numbers;
 
-    public PurchaseUnit() {
+    public Purchase() {
         this.numbers = generatePurchase();
     }
 
@@ -41,7 +40,6 @@ public class PurchaseUnit extends Numbers {
     }
 
     // for encapsulation and output-view
-    @Override
     public List<Integer> getNumbers() {
         return numbers;
     }

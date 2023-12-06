@@ -4,7 +4,6 @@ import java.util.List;
 import lotto.view.message.ErrorMessage;
 
 public class NumbersValidator {
-
     // 옳게 입력한 로또인가요
     public static void isValidLotto(List<Integer> numbers) {
         validateLength(numbers);

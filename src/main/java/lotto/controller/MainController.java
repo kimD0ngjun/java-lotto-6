@@ -1,8 +1,6 @@
 package lotto.controller;
 
 
-import static lotto.controller.PurchaseController.generateAndPrintLottoNumbers;
-
 import java.util.List;
 
 public class MainController {
@@ -11,9 +9,11 @@ public class MainController {
     public void startLotto() {
         InputController inputController = new InputController();
 
+        OutputController outputController = OutputController.getInstance();
+
         int count = inputController.getInputPurchase() / 1_000;
 
-        generateAndPrintLottoNumbers(count);
+        outputController.printPurchaseList(count);
 
 
         List<Integer> lotto = inputController.getInputLotto();
