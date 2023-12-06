@@ -1,5 +1,6 @@
 package lotto.domain.entity;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
@@ -26,5 +27,15 @@ public class PurchaseUnitTest {
 
         assertEquals(6, mockPurchaseUnit.compareNumbers(testCase1));
         assertEquals(2, mockPurchaseUnit.compareNumbers(testCase2));
+    }
+
+    @DisplayName("구입 번호는 유효성 검증을 거친 후에 번호를 반환한다.")
+    @Test
+    void testValidation() {
+        PurchaseUnit purchaseUnit = new PurchaseUnit();
+
+        assertDoesNotThrow(() -> {
+            purchaseUnit.getNumbers();
+        });
     }
 }
