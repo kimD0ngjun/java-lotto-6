@@ -1,7 +1,7 @@
 package lotto.view.message;
 
 public enum OutputMessage {
-    PURCHASEE("%s개를 구매했습니다."),
+    PURCHASEE("\n%s개를 구매했습니다."),
     WINNING("당첨 통계\n"
             + "---\n"
             + "3개 일치 (5,000원) - %d개\n"

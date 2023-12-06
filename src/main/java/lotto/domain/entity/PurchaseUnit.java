@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class PurchaseUnit extends Numbers {
-    private final List<Integer> numbers;
+    private List<Integer> numbers;
 
     public PurchaseUnit() {
         this.numbers = generatePurchase();
@@ -22,12 +22,12 @@ public class PurchaseUnit extends Numbers {
 
     // 구매 단위 번호 생성기
     public List<Integer> generatePurchase () {
-        List<Integer> numbers;
+        List<Integer> generatedNumbers;
         do {
-            numbers = new ArrayList<>(Randoms.pickUniqueNumbersInRange(1, 45, 6));
-        } while (isValidPurchase(numbers));
-        Collections.sort(numbers);
-        return Collections.unmodifiableList(numbers);
+            generatedNumbers = new ArrayList<>(Randoms.pickUniqueNumbersInRange(1, 45, 6));
+        } while (isValidPurchase(generatedNumbers));
+        Collections.sort(generatedNumbers);
+        return Collections.unmodifiableList(generatedNumbers);
     }
 
     private boolean isValidPurchase(List<Integer> numbers) {
@@ -37,5 +37,11 @@ public class PurchaseUnit extends Numbers {
         } catch (IllegalArgumentException e) {
             return false;
         }
+    }
+
+    // for encapsulation and output-view
+    @Override
+    public List<Integer> getNumbers() {
+        return numbers;
     }
 }

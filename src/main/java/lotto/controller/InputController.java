@@ -1,5 +1,8 @@
 package lotto.controller;
 
+import static lotto.utility.AmountValidator.isValidAmount;
+import static lotto.utility.NumbersValidator.isValidBonus;
+import static lotto.utility.NumbersValidator.isValidLotto;
 import static lotto.utility.NumbersValidator.validateRange;
 import static lotto.utility.TypeValidator.isNumberType;
 import static lotto.utility.TypeValidator.splitAndParseInt;
@@ -16,8 +19,9 @@ public class InputController {
             try {
                 Input input = new Purchase();
                 String inputValue = input.inputValue();
-                isNumberType(inputValue);
-                return Integer.parseInt(inputValue);
+                int purchase = isNumberType(inputValue);
+                isValidAmount(purchase);
+                return purchase;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -30,6 +34,7 @@ public class InputController {
                 Input input = new Lotto();
                 String inputValue = input.inputValue();
                 List<Integer> lotto = splitAndParseInt(inputValue);
+                isValidLotto(lotto);
                 return lotto;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -37,14 +42,14 @@ public class InputController {
         }
     }
 
-    public int getInputBonus() {
+    public int getInputBonus(List<Integer> lotto) {
         while (true) {
             try {
                 Input input = new Bonus();
                 String inputValue = input.inputValue();
                 isNumberType(inputValue);
                 int bonus = Integer.parseInt(inputValue);
-                validateRange(bonus); // 추가로 로또 번호랑 중복되는지도 확인 필요
+                isValidBonus(lotto, bonus);
                 return bonus;
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());

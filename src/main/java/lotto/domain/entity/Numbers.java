@@ -1,5 +1,6 @@
 package lotto.domain.entity;
 
+import java.util.Arrays;
 import java.util.List;
 import lotto.utility.NumbersValidator;
 
@@ -10,5 +11,9 @@ public class Numbers {
         NumbersValidator.validateLength(numbers);
         NumbersValidator.validateUnitRange(numbers);
         NumbersValidator.validateDuplicates(numbers);
+    }
+
+    public List<Integer> getNumbers() {
+        return Arrays.asList(0, 0, 0, 0, 0, 0);
     }
 }

@@ -5,6 +5,13 @@ import lotto.view.message.ErrorMessage;
 
 public class NumbersValidator {
 
+    // 옳게 입력한 로또인가요
+    public static void isValidLotto(List<Integer> numbers) {
+        validateLength(numbers);
+        validateUnitRange(numbers);
+        validateDuplicates(numbers);
+    }
+
     public static void validateLength(List<Integer> numbers) {
         if (numbers.size() != 6) {
             throw new IllegalArgumentException(ErrorMessage.SIX_TIMES.getMessage());
@@ -34,9 +41,15 @@ public class NumbersValidator {
         }
     }
 
+    // 옳게 입력한 보너스인가요
+    public static void isValidBonus(List<Integer> lotto, int bonus) {
+        validateRange(bonus);
+        validateContain(lotto, bonus);
+    }
+
     // 당첨 입력값과 보너스 입력값 비교
-    public static void validateContain(List<Integer> lotto, int number) {
-        if (lotto.contains(number)) {
+    public static void validateContain(List<Integer> lotto, int bonus) {
+        if (lotto.contains(bonus)) {
             throw new IllegalArgumentException(ErrorMessage.DUPLICATES.getMessage());
         }
     }
