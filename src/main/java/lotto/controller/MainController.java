@@ -1,10 +1,9 @@
 package lotto.controller;
 
 
-import static lotto.controller.PrintController.generateAndPrintLottoNumbers;
+import static lotto.controller.PurchaseController.generateAndPrintLottoNumbers;
 
 import java.util.List;
-import lotto.view.message.OutputMessage;
 
 public class MainController {
     private List<List<Integer>> purchaseList;
@@ -12,15 +11,9 @@ public class MainController {
     public void startLotto() {
         InputController inputController = new InputController();
 
-        int amount = inputController.getInputPurchase();
-
-        int count = amount / 1_000;
+        int count = inputController.getInputPurchase() / 1_000;
 
         generateAndPrintLottoNumbers(count);
-
-
-
-
 
 
         List<Integer> lotto = inputController.getInputLotto();
