@@ -18,12 +18,4 @@ public class Lotto {
                 .filter(i -> numbers.contains(purchase.get(i)))
                 .count();
     }
-
-    // 보너스 번호 포함됐는지 여부
-    public boolean isContainBonus(int bonus) {
-        if (numbers.contains(bonus)) {
-            return true;
-        }
-        return false;
-    }
 }

@@ -6,6 +6,7 @@ import lotto.controller.OutputController;
 import lotto.domain.entity.Lotto;
 import lotto.domain.entity.Purchase;
 import lotto.view.message.OutputMessage;
+import lotto.view.message.WinningCategory;
 
 public class WinningService {
     private List<Purchase> purchaseList = new ArrayList<>();
@@ -19,12 +20,24 @@ public class WinningService {
     }
 
     // 등수 반환
-    public int getRank(Lotto lotto, int bonus) {
-        for (Purchase purchase: purchaseList) {
+    public List<Integer> updateWinningList(Lotto lotto, int bonus) {
+        List<Integer> winningList = new ArrayList<>();
+
+        for (int i = 0; i < WinningCategory.values().length; i++) {
+            winningList.add(0);
+        }
+        for (Purchase purchase : purchaseList) {
             int winning = purchase.compareNumbers(lotto);
-            if ((winning == 5 && lotto.isContainBonus(bonus)) || winning == 6) {
+            if ((winning == 5 && purchase.isContainBonus(bonus)) || winning == 6) {
                 winning += 1;
             }
+            if (winning  < 3) {
+                continue;
+            }
+            if (winning >= 3 && winning - 3 < winningList.size()) {
+                winningList.set(winning - 3, winningList.get(winning - 3) + 1);
+            }
         }
+        return winningList;
     }
 }

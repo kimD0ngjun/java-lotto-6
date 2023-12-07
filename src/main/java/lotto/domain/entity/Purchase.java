@@ -29,12 +29,20 @@ public class Purchase {
         return Collections.unmodifiableList(numbers);
     }
 
-    private static boolean hasDuplicates(List<Integer> numbers) {
+    private boolean hasDuplicates(List<Integer> numbers) {
         Set<Integer> set = new HashSet<>();
         for (int num : numbers) {
             if (!set.add(num)) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    // 보너스 번호 포함됐는지 여부
+    public boolean isContainBonus(int bonus) {
+        if (numbers.contains(bonus)) {
+            return true;
         }
         return false;
     }

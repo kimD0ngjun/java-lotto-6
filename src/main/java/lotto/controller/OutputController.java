@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import lotto.domain.entity.Lotto;
 import lotto.domain.entity.Purchase;
+import lotto.service.WinningService;
 import lotto.view.message.OutputMessage;
+import lotto.view.message.WinningCategory;
+import lotto.view.output.OutputRank;
 
 public class OutputController {
     private static OutputController instance;
@@ -34,14 +37,5 @@ public class OutputController {
         System.out.println();
     }
 
-    public static void printWinning(Lotto lotto, int bonus) {
-        System.out.println(OutputMessage.WINNING.getMessage());
-
-        for (Purchase purchase: purchaseList) {
-            int winning = purchase.compareNumbers(lotto);
-            if ((winning == 5 && lotto.isContainBonus(bonus)) || winning == 6) {
-                winning += 1;
-            }
-        }
-    }
+    // 등수 반환
 }
