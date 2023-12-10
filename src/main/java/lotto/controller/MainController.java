@@ -25,5 +25,6 @@ public class MainController {
         int bonus = inputController.getInputBonus(lottoValue);
 
         OutputController.printRank(purchaseList, lotto, bonus);
+        OutputController.printPrize(purchaseList, lotto, bonus, count);
     }
 }

@@ -31,7 +31,7 @@ public class TypeValidator {
     private static final String CASH_PRIZE_REGEX = "\\B(?=(\\d{3})+(?!\\d))";
     private static final String COMMA_REGEX = ",";
 
-    public static String formatCashPrize(int cashPrize) {
+    public static String formatCashPrize(double cashPrize) {
         return String.valueOf(cashPrize).replaceAll(CASH_PRIZE_REGEX, COMMA_REGEX);
     }
 }

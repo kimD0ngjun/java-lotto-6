@@ -5,7 +5,7 @@ import lotto.domain.entity.Lotto;
 import lotto.service.WinningService;
 import lotto.view.message.OutputMessage;
 
-public class OutputRank {
+public class OutputRank implements Output {
     public void outputValue(WinningService winning, Lotto lotto, int bonus) {
         System.out.println(OutputMessage.RANK_MESSAGE.getMessage());
         System.out.println(OutputMessage.MATCHING_THREE.getMessage(winning.rankWinning(lotto, 3, bonus)));
