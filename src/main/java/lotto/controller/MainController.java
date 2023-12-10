@@ -3,6 +3,7 @@ package lotto.controller;
 
 import java.util.List;
 import lotto.domain.entity.Lotto;
+import lotto.service.WinningService;
 
 public class MainController {
     private List<List<Integer>> purchaseList;
@@ -10,11 +11,11 @@ public class MainController {
     public void startLotto() {
         InputController inputController = new InputController();
 
-        OutputController outputController = new OutputController();
-
         int count = inputController.getInputPurchase() / 1_000;
 
-        outputController.printPurchaseList(count);
+        WinningService purchaseList = new WinningService(count);
+
+        OutputController.printPurchaseList(count, purchaseList);
 
 
 
@@ -22,5 +23,7 @@ public class MainController {
         List<Integer> lottoValue = inputController.getInputLotto();
         Lotto lotto = new Lotto(lottoValue);
         int bonus = inputController.getInputBonus(lottoValue);
+
+        OutputController.printRank(purchaseList, lotto);
     }
 }
