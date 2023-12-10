@@ -47,7 +47,11 @@ public class Purchase {
         return false;
     }
 
-    // for encapsulation and output-view
+    public static Purchase createRandomPurchase() {
+        return new Purchase();
+    }
+
+    // for output-view
     public List<Integer> getNumbers() {
         return numbers;
     }
