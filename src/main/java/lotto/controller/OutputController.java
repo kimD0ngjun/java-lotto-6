@@ -19,8 +19,10 @@ public class OutputController {
     }
 
     // 등수 반환
-    public static void printRank(WinningService winning, Lotto lotto) {
+    public static void printRank(WinningService winning, Lotto lotto, int bonus) {
         OutputRank outputRank = new OutputRank();
-        outputRank.outputValue(winning, lotto);
+        outputRank.outputValue(winning, lotto, bonus);
     }
+
+    // 당첨금 반환
 }

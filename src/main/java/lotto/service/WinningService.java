@@ -25,11 +25,24 @@ public class WinningService {
     }
 
     // 랭킹 매기기
-    public int rankWinning(Lotto lotto, int sameCount) {
+    public int rankWinning(Lotto lotto, int sameCount, int bonus) {
         int count = 0;
 
         for(Purchase purchase: purchaseList) {
-            if (purchase.compareNumbers(lotto) == sameCount) {
+            if (purchase.compareNumbers(lotto) == sameCount && !purchase.isContainBonus(bonus)) {
+                count ++;
+            }
+        }
+
+        return count;
+    }
+
+    // 보너스 일치 여부
+    public int rankWinningWithBonus(Lotto lotto, int bonus) {
+        int count = 0;
+
+        for(Purchase purchase: purchaseList) {
+            if (purchase.compareNumbers(lotto) == 5 && purchase.isContainBonus(bonus)) {
                 count ++;
             }
         }
